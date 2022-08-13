@@ -1,6 +1,6 @@
 # HyperSCI-KDD22:  Learning Causal Effects on Hypergraphs
 
-Code for the WSDM 2022 paper [*Learning Causal Effects on Hypergraphs*.](https://arxiv.org/pdf/2207.04049.pdf)
+Code for the KDD 2022 paper [*Learning Causal Effects on Hypergraphs*.](https://arxiv.org/pdf/2207.04049.pdf)
 
 ## Environment
 ```
