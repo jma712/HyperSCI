@@ -22,7 +22,7 @@ python data_preprocessing.py
 ```
 python data_simulation.py
 ```
-### Data Simulation
+### HyperSCI
 ```
 python HyperSCI.py --path '../../data/Simulation/GR/GoodReads.mat'
 ```
