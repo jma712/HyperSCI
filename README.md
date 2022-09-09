@@ -14,6 +14,12 @@ Numpy 1.17.2
 Datasets can be found in ```./data```
 
 ## Run Experiment
+### HyperSCI
+```
+python HyperSCI.py --path '../../data/Simulation/GR/GoodReads.mat'
+```
+
+The data preprocessing and simulation is in:
 ### Data Preprocessing
 ```
 python data_preprocessing.py
@@ -21,10 +27,6 @@ python data_preprocessing.py
 ### Data Simulation
 ```
 python data_simulation.py
-```
-### HyperSCI
-```
-python HyperSCI.py --path '../../data/Simulation/GR/GoodReads.mat'
 ```
 
 ### Refenrences
