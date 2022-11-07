@@ -11,7 +11,7 @@ Numpy 1.17.2
 ```
 
 ## Dataset
-Datasets can be found in ```./data```
+Datasets can be found in [link](https://virginia.box.com/s/zo47hdsavd0vvsnnxmqiitec3dsmbmbc).
 
 ## Run Experiment
 ### HyperSCI
