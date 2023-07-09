@@ -46,14 +46,14 @@ parser.add_argument('--seed', type=int, default=42, help='Random seed.')
 parser.add_argument('--epochs', type=int, default=1601, help='Number of epochs to train.')
 parser.add_argument('--lr', type=float, default=1e-4, help='Initial learning rate.')
 parser.add_argument('--h_dim', type=int, default=25, help='dim of hidden units.')
-parser.add_argument('--g_dim', type=int, default=32, help='dim of treatment representation.')
+parser.add_argument('--g_dim', type=int, default=32, help='dim of interference representation.')
 parser.add_argument('--clip', type=float, default=1., help='gradient clipping')
 parser.add_argument('--activate', type=int, default=0)
 parser.add_argument('--normy', type=int, default=0)
-parser.add_argument('--num_gnn_layer', type=int, default=1)
-parser.add_argument('--n_out', type=int, default=0)
+parser.add_argument('--num_gnn_layer', type=int, default=1, help='layer of gnn')
+parser.add_argument('--n_out', type=int, default=0, help='layer of prediction')
 parser.add_argument('--dropout', type=float, default=0.5)
-parser.add_argument('--phi_layer', type=int, default=1)
+parser.add_argument('--phi_layer', type=int, default=1, help='layer of phi(x)')
 parser.add_argument('--skip', type=str, default='23', choices=['123', '23'])
 parser.add_argument('--graph_model', type=str, default='hypergraph', choices=['hypergraph', 'graph'])  # hypergraph: our model; graph: gcn based baseline
 parser.add_argument('--graph_type', type=str, default='hypergraph', choices=['hypergraph', 'projected'])   # use hypergraph or projected graph
@@ -331,7 +331,7 @@ def data_statistics(features, treatments, outcomes, Y_true):
 
 def experiment_LR(features, treatment, outcome, Y_true, hyperedge_index, idx_trn_list, idx_val_list, idx_tst_list, exp_num=3):
     t_begin = time.time()
-    results_all = {'pehe': [], 'ate': [], 'RMSE_Y1': [], 'RMSE_Y0': []}
+    results_all = {'pehe': [], 'ate': []}
 
     for i_exp in range(0, exp_num):  # 10 runs of experiments
         print("============== Experiment ", str(i_exp), " =========================")
@@ -364,7 +364,7 @@ def experiment_LR(features, treatment, outcome, Y_true, hyperedge_index, idx_trn
 def experiment_ite(args, features, treatments, outcomes, Y_true, hyperedge_index, idx_trn_list, idx_val_list, idx_tst_list, exp_num=3):
     t_begin = time.time()
 
-    results_all = {'pehe': [], 'ate': [], 'RMSE_Y1': [], 'RMSE_Y0': []}
+    results_all = {'pehe': [], 'ate': []}
 
     for i_exp in range(0, exp_num):  # runs of experiments
         print("============== Experiment ", str(i_exp), " =========================")
@@ -399,19 +399,12 @@ def experiment_ite(args, features, treatments, outcomes, Y_true, hyperedge_index
 
         results_all['pehe'].append(eval_results_tst['pehe'])
         results_all['ate'].append(eval_results_tst['ate'])
-        results_all['RMSE_Y1'].append(eval_results_tst['RMSE_Y1'])
-        results_all['RMSE_Y0'].append(eval_results_tst['RMSE_Y0'])
         # break  # if you just need one run
 
     results_all['average_pehe'] = np.mean(np.array(results_all['pehe'], dtype=np.float))
     results_all['std_pehe'] = np.std(np.array(results_all['pehe'], dtype=np.float))
     results_all['average_ate'] = np.mean(np.array(results_all['ate'], dtype=np.float))
     results_all['std_ate'] = np.std(np.array(results_all['ate'], dtype=np.float))
-
-    results_all['average_rmse_y1'] = np.mean(np.array(results_all['RMSE_Y1'], dtype=np.float))
-    results_all['std_rmse_y1'] = np.std(np.array(results_all['RMSE_Y1'], dtype=np.float))
-    results_all['average_rmse_y0'] = np.mean(np.array(results_all['RMSE_Y0'], dtype=np.float))
-    results_all['std_rmse_y0'] = np.std(np.array(results_all['RMSE_Y0'], dtype=np.float))
 
     print("============== Overall experiment results =========================")
     for k in results_all:
