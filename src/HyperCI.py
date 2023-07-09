@@ -54,7 +54,7 @@ parser.add_argument('--num_gnn_layer', type=int, default=1)
 parser.add_argument('--n_out', type=int, default=0)
 parser.add_argument('--dropout', type=float, default=0.5)
 parser.add_argument('--phi_layer', type=int, default=1)
-parser.add_argument('--skip', type=str, default='23', choices=['123', '3', '23', '13', '1'])
+parser.add_argument('--skip', type=str, default='23', choices=['123', '23'])
 parser.add_argument('--graph_model', type=str, default='hypergraph', choices=['hypergraph', 'graph'])  # hypergraph: our model; graph: gcn based baseline
 parser.add_argument('--graph_type', type=str, default='hypergraph', choices=['hypergraph', 'projected'])   # use hypergraph or projected graph
 parser.add_argument('--index_type', type=str, default='hyper_index', choices=['hyper_index', 'graph_index'])  # graph_index for baseline
