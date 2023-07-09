@@ -18,12 +18,12 @@ Demo datasets with simulation can be found in [link](https://virginia.box.com/s/
 ```
 python HyperSCI.py --dataset 'contact' --path '../data/contact.mat'
 ```
-With the demo ```contact.mat``` dataset and default parameter settings, the mean results ($$\sqrt{\epsilon_{PEHE}}$$ and $$\epsilon_{ATE}$$) of three runs for our method should be $$12.16/9.55$$. 
+With the demo ```contact.mat``` dataset and default parameter settings, the mean results ($\sqrt{\epsilon_{PEHE}}$ and $\epsilon_{ATE}$) of three runs for our method should be $12.16/9.55$. 
 
 ```
 python HyperSCI.py --dataset 'GoodReads' --path '../data/GoodReads.mat'
 ```
-With the demo ```GoodReads.mat``` dataset and default parameter settings, the mean results ($$\sqrt{\epsilon_{PEHE}}$$ and $$\epsilon_{ATE}$$) of three runs for our method should be $$33.30/4.73$$. 
+With the demo ```GoodReads.mat``` dataset and default parameter settings, the mean results ($\sqrt{\epsilon_{PEHE}}$ and $\epsilon_{ATE}$) of three runs for our method should be $33.30/4.73$. 
 
 The data preprocessing from raw data and simulation is in:
 ### Data Preprocessing
