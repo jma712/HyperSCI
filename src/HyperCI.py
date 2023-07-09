@@ -59,7 +59,7 @@ parser.add_argument('--graph_model', type=str, default='hypergraph', choices=['h
 parser.add_argument('--graph_type', type=str, default='hypergraph', choices=['hypergraph', 'projected'])   # use hypergraph or projected graph
 parser.add_argument('--index_type', type=str, default='hyper_index', choices=['hyper_index', 'graph_index'])  # graph_index for baseline
 parser.add_argument('--path', type=str, default='../data/contact.mat')
-parser.add_argument('--encoder', type=str, default='gcn', choices=['gcn', 'gat', 'mlp'])
+parser.add_argument('--encoder', type=str, default='gcn', choices=['gcn', 'gat'])
 parser.add_argument('--exp_name', type=str, default='ITE', choices=['ITE', 'LR', 'case', 'hypersize'])
 parser.add_argument('--LR_name', type=str, default='S', choices=['S', 'T', 'T_agg'])  # linear regression: S-Learner, T-learner
 parser.add_argument('--max_hyperedge_size', type=int, default=50,

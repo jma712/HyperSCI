@@ -145,7 +145,7 @@ class GraphSCI(nn.Module):
         phi_x_p = phi_x  # self.phi_x_p(features)
         phi_x_t = torch.mul(treatments.view(-1, 1), phi_x)
 
-        if self.encoder == 'gat' or self.encoder == 'gcn':
+        if self.encoder == 'gcn':
             rep_gnn = self.gnn(x=phi_x_t, edge_index=edge_index)  # hypergnn
             for i in range(self.num_gnn_layer - 1):
                 if self.activate:
