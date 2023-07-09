@@ -155,8 +155,6 @@ def report_info(epoch, time_begin, loss_results_train, eval_results_val, eval_re
 
     print('Epoch: {:04d}'.format(epoch + 1),
             'loss_train: {:.4f}'.format(loss_train.item()),
-            'RMSE_Y1_tst: {:.4f} '.format(RMSE_Y1_tst),
-            'RMSE_Y0_tst: {:.4f} '.format(RMSE_Y0_tst),
             'pehe_tst: {:.4f}'.format(pehe_tst),
             'ate_tst: {:.4f} '.format(ate_tst),
             'time: {:.4f}s'.format(time.time() - time_begin)
@@ -345,18 +343,12 @@ def experiment_LR(features, treatment, outcome, Y_true, hyperedge_index, idx_trn
 
         results_all['pehe'].append(eval_results_tst['pehe'])
         results_all['ate'].append(eval_results_tst['ate'])
-        results_all['RMSE_Y1'].append(eval_results_tst['RMSE_Y1'])
-        results_all['RMSE_Y0'].append(eval_results_tst['RMSE_Y0'])
 
     results_all['average_pehe'] = np.mean(np.array(results_all['pehe'], dtype=np.float))
     results_all['std_pehe'] = np.std(np.array(results_all['pehe'], dtype=np.float))
     results_all['average_ate'] = np.mean(np.array(results_all['ate'], dtype=np.float))
     results_all['std_ate'] = np.std(np.array(results_all['ate'], dtype=np.float))
 
-    results_all['average_rmse_y1'] = np.mean(np.array(results_all['RMSE_Y1'], dtype=np.float))
-    results_all['std_rmse_y1'] = np.std(np.array(results_all['RMSE_Y1'], dtype=np.float))
-    results_all['average_rmse_y0'] = np.mean(np.array(results_all['RMSE_Y0'], dtype=np.float))
-    results_all['std_rmse_y0'] = np.std(np.array(results_all['RMSE_Y0'], dtype=np.float))
 
     print("============== Overall experiment results =========================")
     for k in results_all:
