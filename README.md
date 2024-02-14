@@ -11,7 +11,7 @@ Numpy 1.17.2
 ```
 
 ## Dataset
-Demo datasets with simulation can be found in [link](https://virginia.box.com/s/zo47hdsavd0vvsnnxmqiitec3dsmbmbc).
+Demo datasets with simulation can be found in [link](https://drive.google.com/drive/folders/1Jey0eanNrv7YkzUGpnv64sfeY4iGZsEv?usp=sharing).
 
 ## Run Experiment
 ### HyperSCI
